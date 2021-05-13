@@ -6,15 +6,24 @@ Works both in-browser (thanks to WASM) and as desktop version (OpenGL). The proj
 
 Desktop version can be tested on Windows with Windows-Subsystem-For-Linux and XLaunch (Disable native OpenGL).
 
+### Start
+
+```
+cd rust
+cargo build
+./target/debug/desktop
+```
+
 <img src="./demo-screenshot-desktop.png"/>
 
 ## Web version
 
-## **ROOT** directory
-
-1. Pack WASM code:
+### Start
 
 ```
 wasm-pack build rust/wasm
+cd rust/wasm
+yarn start
 ```
 
+<img src="./demo-screenshot-web.png"/>
