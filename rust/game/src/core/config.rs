@@ -1,0 +1,19 @@
+pub const TARGET_FPS: u32 = 60;
+pub const SIMULATION_TIMESTEP: f64 = 1000.0 / TARGET_FPS as f64;
+pub const MONSTER_COUNT: i32 = 50;
+pub const DELAY_BETWEEN_SPAWNING_MONSTERS: f64 = 1000.0;
+pub const SPAWN_POINT_X: i32 = 3;
+pub const SPAWN_POINT_Y: i32 = 4;
+pub const TILE_PIXEL_SIZE: i32 = 32;
+pub const SCREEN_WIDTH: i32 = 1000;
+pub const SCREEN_HEIGHT: i32 = 1000;
+pub const MAP_TILES_AMOUNT_X: usize = 23;
+pub const MAP_TILES_AMOUNT_Y: usize = 23;
+pub const MAP_TILES_TOTAL: usize = MAP_TILES_AMOUNT_X * MAP_TILES_AMOUNT_Y;
+
+// pub static SIMULATION_TIMESTEP: f64 = 1000.0 / 60.0;
+// pub static MONSTER_COUNT: i32 = 200;
+// pub static DELAY_BETWEEN_SPAWNING_MONSTERS: f64 = 200.0;
+// pub static SPAWN_POINT_X: i32 = 3;
+// pub static SPAWN_POINT_Y: i32 = 3;
+// pub static TILE_PIXEL_SIZE: i32 = 32;

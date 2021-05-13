@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+    "desktop",
+    "game",
+    "wasm"
+]
