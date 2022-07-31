@@ -1,12 +1,10 @@
 # Tower Defense RUST
 
-Works both in-browser (thanks to WASM) on Mac, Windows, Linux and as a desktop version (OpenGL) on Windows and Linux.
+Works both in-browser (thanks to WASM) and as a desktop version (OpenGL) on Mac, Windows and Linux.
 
-## Mac
+## Web version
 
 Install wasmpack if not installed: https://rustwasm.github.io/wasm-pack/installer/.
-
-### Web version
 
 ```
 cd rust
@@ -17,7 +15,9 @@ yarn
 yarn start
 ```
 
-### Desktop
+## Desktop
+
+### Mac
 
 Install required dependencies:
 
@@ -34,9 +34,7 @@ cargo build
 ./target/debug/desktop
 ```
 
-## Windows and Linux
-
-### Desktop
+### Linux
 
 Desktop version can be tested on Windows with Windows-Subsystem-For-Linux and XLaunch (Disable native OpenGL).
 
@@ -49,15 +47,4 @@ cargo build
 ```
 
 <img src="./demo-screenshot-desktop.png"/>
-
-### Web version
-
-#### Start
-
-```
-wasm-pack build rust/wasm
-cd rust/wasm
-yarn start
-```
-
 <img src="./demo-screenshot-web.png"/>
