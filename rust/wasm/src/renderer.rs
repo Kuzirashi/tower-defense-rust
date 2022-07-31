@@ -254,7 +254,7 @@ impl BrowserRenderer {
 }
 
 impl GameRenderer for BrowserRenderer {
-    fn draw(&mut self, sprites: &Vec<Sprite>) {
+    fn draw(&mut self, sprites: &Vec<Sprite>) -> Result<(), String> {
         self.canvas.set_fill_style(&"rgb(5,5,5)".into());
         self.canvas.fill_rect(0.0, 0.0, 900.0, 900.0);
 
@@ -345,7 +345,7 @@ impl GameRenderer for BrowserRenderer {
             }
         }
 
-        return ();
+        Ok(())
     }
 }
 

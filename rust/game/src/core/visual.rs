@@ -104,5 +104,5 @@ impl Sprite {
 }
 
 pub trait GameRenderer {
-    fn draw(&mut self, sprites: &Vec<Sprite>) -> ();
+    fn draw(&mut self, sprites: &Vec<Sprite>) -> Result<(), String>;
 }

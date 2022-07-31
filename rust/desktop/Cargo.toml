@@ -10,6 +10,6 @@ edition = "2018"
 game = { path = "../game" }
 
 [dependencies.sdl2]
-version = "0.34.5"
+version = "0.35.2"
 default-features = false
 features = ["image", "ttf", "gfx"]

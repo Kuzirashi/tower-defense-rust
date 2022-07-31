@@ -15,6 +15,7 @@ use sdl2::{
     keyboard::Keycode,
 };
 use sdl2::{pixels::Color, render::BlendMode};
+use std::env;
 use std::path::Path;
 use std::time::SystemTime;
 
@@ -125,13 +126,25 @@ impl<'a> OpenGLRenderer<'a> {
 }
 
 impl GameRenderer for OpenGLRenderer<'_> {
-    fn draw(&mut self, sprites: &Vec<Sprite>) {
+    fn draw(&mut self, sprites: &Vec<Sprite>) -> Result<(), String> {
         let bg_color = Color::RGB(5, 5, 5);
         self.canvas.set_draw_color(bg_color);
 
         self.canvas.clear();
 
-        let font_path = Path::new("/home/kuzi/projects/tower-rust/rust/assets/fonts/arial.ttf");
+        let path = match env::current_dir() {
+            Ok(it) => it,
+            Err(err) => return Err(err.to_string()),
+        };
+
+        if !path.ends_with("rust") {
+            return Err(String::from("Make sure to run the executable command from inside /rust directory"))
+        }
+
+        let mut font_path_string: String = path.to_str().unwrap().to_owned();
+        font_path_string.push_str("/assets/fonts/arial.ttf");
+
+        let font_path = Path::new(&font_path_string);
         let font8 = self.ttf_context.load_font(font_path, 8).unwrap();
         let font16 = self.ttf_context.load_font(font_path, 16).unwrap();
         let font32 = self.ttf_context.load_font(font_path, 32).unwrap();
@@ -216,6 +229,8 @@ impl GameRenderer for OpenGLRenderer<'_> {
         }
 
         self.canvas.present();
+
+        Ok(())
     }
 }
 
@@ -274,9 +289,14 @@ impl OpenGLGame {
 
         let texture_creator = self.canvas.texture_creator();
 
+        let path = match env::current_dir() {
+            Ok(it) => it,
+            Err(err) => return Err(err.to_string()),
+        };
+
         let mut renderer = OpenGLRenderer::new(
             String::from("Tower Defense SDL2"),
-            "/home/kuzi/projects/tower-rust/rust",
+            path.to_str().unwrap(),
             &mut self.canvas,
             &texture_creator,
         )?;
@@ -332,7 +352,13 @@ impl OpenGLGame {
                 ));
             }
 
-            renderer.draw(&sprites);
+            match renderer.draw(&sprites) {
+                Ok(it) => it,
+                Err(err) => {
+                    println!("Error when drawing: {:?}", err.to_string());
+                    return Err(err.to_string())
+                }
+            };
 
             rendered_frames += 1;
 

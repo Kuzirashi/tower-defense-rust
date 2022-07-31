@@ -17,6 +17,23 @@ yarn
 yarn start
 ```
 
+### Desktop
+
+Install required dependencies:
+
+```
+brew install sdl2 sdl2_image sdl2_ttf sdl2_gfx
+export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
+```
+
+Build and start project:
+
+```
+cd rust
+cargo build
+./target/debug/desktop
+```
+
 ## Windows and Linux
 
 ### Desktop
