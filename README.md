@@ -34,9 +34,9 @@ cargo build
 ./target/debug/desktop
 ```
 
-### Linux
+### Linux & Windows
 
-Desktop version can be tested on Windows with Windows-Subsystem-For-Linux and XLaunch (Disable native OpenGL).
+[Desktop version can be also tested on Windows with Windows-Subsystem-For-Linux.](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
 
 #### Start
 
